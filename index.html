@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Archive</title>
+    <!-- bootsrap usage -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bgImage">
+    <section class="pt-5">
+        <div class="input-group mb-2 w-50 mx-auto">
+            <input id="searchedBook" type="text" class="form-control" placeholder="Enter the book name you want"
+                aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button onclick="loadSearch()" class="btn btn-danger" type="button" id="button-addon2">Search</button>
+        </div>
+    </section>
+    <section>
+        <div class="text-center">
+            <div id="spinner" class="text-info" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+        <div id="searchResult">
+            <h5 id="dataNum" class="text-center text-white pt-4"></h5>
+            <h1 id="noData" class="text-center mt-5 text-light"></h1>
+
+            <div id="showResult" class="row bg-white d-flex justify-content-evenly">
+           
+            </div>
+        </div>
+
+    </section>
+    <script src="js/book.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
+</body>
+
+</html>
