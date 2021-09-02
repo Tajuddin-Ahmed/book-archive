@@ -7,10 +7,10 @@ const loadSearch = async () => {
     const url = `http://openlibrary.org/search.json?q=${searchValue}`;
     const res = await fetch(url);
     const data = await res.json();
-    showResults(data.docs);
+    showResults(data.docs,data.numFound);
 }
 
-const showResults = books => {
+const showResults = (books,numFound) => {
     console.log(books);  
     if ((Object.keys(books).length) === 0) {
         document.getElementById('noData').innerText = "No Data Found";
@@ -19,7 +19,7 @@ const showResults = books => {
     } else {
         document.getElementById('noData').innerText='';
         const container = document.getElementById('showResult');
-        document.getElementById('dataNum').innerText = `Total data Found : ${Object.keys(books).length}`;
+        document.getElementById('dataNum').innerText = `Showing ${Object.keys(books).length} From Total ${numFound} Results `;
         container.textContent = '';
         books.forEach(book => {
             const div = document.createElement('div');
@@ -28,9 +28,9 @@ const showResults = books => {
             div.innerHTML = `
             <img src = "https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg">
             <h4>${book.title}</h4>
-            <p>Author: ${book.author_name}</hp>
-            <p>Publisher : ${book.publisher}</p>
-            <p>Publishion Year: ${book.first_publish_year}</h>
+            <p>Author: ${book.author_name?book.author_name:''}</hp>
+            <p>Publisher : ${book.publisher?book.publisher[0]:''}</p>
+            <p>First Publishion Year: ${book.first_publish_year?book.first_publish_year:''}</h>
            `;
             container.appendChild(div);
         });

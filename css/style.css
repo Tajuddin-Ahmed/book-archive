@@ -1,11 +1,20 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 .divStyle{
     color: black;
     text-align: center;
     background:lightyellow;
     margin: 5px;
     border: 2px solid grey;
-    padding: 10px;
+    padding: 5px;
     border-radius: 5px;
+    overflow: scroll;
+    min-height: 300px;
+    max-height: 350px;
+    line-height:inherit;
+    font-size: 14px;
 }
 
 .bgImage{
